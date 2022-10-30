@@ -11,7 +11,7 @@ public class Task extends BaseTest {
     public void test(){
         ResultsPage resultsPage = homePage.search();
 
-        Assert.assertTrue(resultsPage.assertPageNumber());
+       // Assert.assertTrue(resultsPage.assertPageNumber());
 
         resultsPage.nextPage();
         Assert.assertTrue(resultsPage.assertPageNumber());
