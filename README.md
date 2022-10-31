@@ -73,7 +73,7 @@ of the scenario when it pass or fail.
 
 * To run the allure report on your machine please type 
 < allure serve "allure results path" > in your command prompt
-the report will be created in html format on your browser.
+and the report will be created in html format on your browser.
 
 
 
