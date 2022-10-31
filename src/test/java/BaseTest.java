@@ -8,21 +8,23 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 import utils.Utilities;
+
 import java.io.IOException;
 import java.util.Properties;
 
 public class BaseTest {
-private WebDriver driver ;
-protected HomePage homePage;
-private Utilities util= new Utilities();
 
-private String URL= util.readTestData(1,0);
+    private WebDriver driver;
+    protected HomePage homePage;
+
+    private Utilities util = new Utilities();
+    private String URL = util.readTestData(1, 0);
 
     @BeforeClass
     public void setUp() throws IOException {
-     Properties  prop=  util.setupProp();
+        Properties prop = util.setupProp();
         String browser = prop.getProperty("browser");
-        switch (browser){
+        switch (browser) {
 
             case "CH":
 
@@ -30,13 +32,13 @@ private String URL= util.readTestData(1,0);
                 driver = new ChromeDriver();
                 break;
 
-            case "FF" :
+            case "FF":
 
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
 
-            case "Edge" :
+            case "Edge":
 
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
@@ -52,7 +54,7 @@ private String URL= util.readTestData(1,0);
     }
 
     @BeforeMethod
-    public void goHome(){
+    public void goHome() {
         driver.manage().window().maximize();
         driver.get(URL);
         homePage = new HomePage(driver);
@@ -60,8 +62,8 @@ private String URL= util.readTestData(1,0);
     }
 
     @AfterClass
-    public void tearDown(){
-       driver.quit();
+    public void tearDown() {
+        driver.quit();
     }
 
 
